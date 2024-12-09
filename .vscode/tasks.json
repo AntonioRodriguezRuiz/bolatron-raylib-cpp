@@ -1,0 +1,46 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Clean",
+            "type": "shell",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "command": "rm",
+            "args": [
+                "-rf",
+                "build/*"
+            ]
+        },
+        {
+            "label": "Cmake_debug",
+            "type": "shell",
+            "options": {
+                "cwd": "${workspaceFolder}/build"
+            },
+            "command": "cmake",
+            "args": [
+                "-DCMAKE_BUILD_TYPE=Debug",
+                ".."
+            ]
+        },
+        {
+            "label": "Compile",
+            "type": "shell",
+            "options": {
+                "cwd": "${workspaceFolder}/build"
+            },
+            "command": "cmake",
+            "args": [
+                "--build",
+                "."
+            ],
+            "dependsOrder": "sequence",
+            "dependsOn": [
+                "Clean",
+                "Cmake_debug"
+            ]
+        }
+    ]
+}

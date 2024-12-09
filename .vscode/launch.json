@@ -1,0 +1,13 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug",
+            "type": "codelldb",
+            "request": "launch",
+            "preLaunchTask": "Compile",
+            "expressions": "native",
+            "program": "${workspaceFolder}/build/game"
+        }
+    ]
+}
